@@ -1,0 +1,7 @@
+PUT _settings
+{
+  "number_of_replicas": 0
+}
+
+
+to remove unalloated shards error in monitoring
