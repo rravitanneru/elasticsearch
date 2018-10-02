@@ -1,0 +1,66 @@
+{
+  "trigger": {
+    "schedule": {
+      "interval": "2m"
+    }
+  },
+  "input": {
+    "search": {
+      "request": {
+        "search_type": "query_then_fetch",
+        "indices": [
+          "filebeat-*"
+        ],
+        "types": [],
+        "body": {
+          "query": {
+            "bool": {
+              "must": {
+                "match": {
+                  "message": "auditd normal halt"
+                }
+              },
+              "filter": {
+                "range": {
+                  "@timestamp": {
+                    "from": "now-3m",
+                    "to": "now"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "condition": {
+    "compare": {
+      "ctx.payload.hits.total": {
+        "eq": 1
+      }
+    }
+  },
+  "actions": {
+    "email_administrator": {
+      "audit_email": {
+        "profile": "standard",
+        "attachments": {
+          "attached_data": {
+            "data": {
+              "format": "json"
+            }
+          }
+        },
+        "priority": "high",
+        "to": [
+          "ravikumar.tanneruu@omniwyse.com"
+        ],
+        "subject": "authentication failure in dev3",
+        "body": {
+          "text": "suspicious act detected"
+        }
+      }
+    }
+  }
+}

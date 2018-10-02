@@ -1,0 +1,103 @@
+[
+  {
+    "_id": "Dev3lerts",
+    "_type": "dashboard",
+    "_source": {
+      "title": "DEV3alerts",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Authentication-failures\",\"panelIndex\":1,\"row\":1,\"size_x\":9,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Intursion-Dections\",\"panelIndex\":2,\"row\":4,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Audit-Daemon-Normal-Stops\",\"panelIndex\":3,\"row\":4,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Top-hosts-for-normal-audit-stops\",\"panelIndex\":4,\"row\":4,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Top-hosts-for-failed-passwords\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Top-hosts-for-hosts-affceted-to-intrusions\",\"panelIndex\":6,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Authentication-failures",
+    "_type": "visualization",
+    "_source": {
+      "title": "authentication failure",
+      "visState": "{\"title\":\"authentication failure\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"radius\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"authentication failure\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"authentication.failure\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"authentication failure\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-hosts-for-failed-passwords",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top-hosts-for-failed-passwords",
+      "visState": "{\"title\":\"Failed password for\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"beat.name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"Failed password\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"Failed.password\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"Failed password\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Audit-Daemon-Normal-Stops",
+    "_type": "visualization",
+    "_source": {
+      "title": "Auditd Normal Halts",
+      "visState": "{\"title\":\"auditd normal halt\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"radius\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"auditd normal halt\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"auditd.normal.halt\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"auditd normal halt\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-hosts-for-normal-audit-stops",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top-hosts-for-normal-audit-stops",
+      "visState": "{\"title\":\"auditd normal halt\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"beat.name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"auditd normal halt\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"auditd.normal.halt\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"auditd normal halt\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-hosts-for-hosts-affceted-to-intrusions",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top-Hosts-Tried-Explore",
+      "visState": "{\"title\":\"Invalid user\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"beat.name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"Invalid user\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"Invalid.user\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"Invalid user\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Intursion-Dections",
+    "_type": "visualization",
+    "_source": {
+      "title": "Intursion-Dections",
+      "visState": "{\"title\":\"Invalid user\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"radius\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"filebeat-*\",\"query\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"language\":\"lucene\"},\"filter\":[{\"query\":{\"match_phrase\":{\"message\":\"Invalid user\"}},\"meta\":{\"index\":\"filebeat-*\",\"disabled\":false,\"alias\":\"Invalid.user\",\"type\":\"custom\",\"key\":\"query\",\"value\":\"{\\\"match_phrase\\\":{\\\"message\\\":\\\"Invalid user\\\"}}\",\"negate\":false},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  }
+]
