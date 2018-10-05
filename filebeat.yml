@@ -144,11 +144,11 @@ setup.kibana:
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["172.29.240.6:9200"]
+  hosts: ["serverip:9200"]
   # Optional protocol and basic auth credentials.
   #protocol: "https"
   username: "elastic"
-  password: "admin@123"
+  password: "elasticpassword here"
 
 #----------------------------- Logstash output --------------------------------
 #output.logstash:

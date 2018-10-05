@@ -93,5 +93,5 @@ xpack.notification:
             starttls.enable: true
             host: smtp.gmail.com
             port: 587
-            user: genfare.notifications@omniwyse.com
-            password: Genfare@spx
+            user: abc.xyz@gmail.com
+            password: passwordhere
