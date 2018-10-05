@@ -24,9 +24,9 @@ curl -X GET "elasticserachserverip:9200/filebeat-*/_search" -H 'Content-Type: ap
 
 jq .hits.hits af.json >> afresult.json
 
-count=`cat afresult.json | wc -l`
+count=`jq .hits.total af.json`
 
-if [ $count -ge 2 ]
+if [ $count -gt 2 ]
 then
 echo "Triggring e-mail"
 echo "PFA" | mutt -s "Authentication Failure Detected in Dev3"  <mail-id here without brackets> -a afresult.json
