@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -X GET "172.29.240.6:9200/filebeat-*/_search" -H 'Content-Type: application/json' -d'
+curl -X GET "elasticsearchip:9200/filebeat-*/_search" -H 'Content-Type: application/json' -d'
 {
 "query": {
   "bool": {
@@ -29,7 +29,7 @@ count=`cat itresult.json | wc -l`
 if [ $count -ge 2 ]
 then
 echo "Triggring e-mail"
-echo "PFA" | mutt -s "Intrusion Detected in Dev3"  ravikumar.tanneruu@omniwyse.com -a itresult.json
+echo "PFA" | mutt -s "Intrusion Detected in Dev3"  <mail-id here> -a itresult.json
 else
     echo "condition not met "
 fi

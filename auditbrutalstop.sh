@@ -29,7 +29,7 @@ count=`cat adbresult.json | wc -l`
 if [ $count -ge 2 ]
 then
 echo "Triggring e-mail"
-echo "PFA" | mutt -s "Auditd daemon stopped brutally in Dev3"  ravikumar.tanneruu@omniwyse.com -a adbresult.json
+echo "PFA" | mutt -s "Auditd daemon stopped brutally in Dev3"  <mail-id> -a adbresult.json
 else
     echo "condition not met "
 fi
